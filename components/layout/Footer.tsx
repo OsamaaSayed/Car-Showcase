@@ -1,7 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { footerLinks } from '@constants';
-import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -44,7 +44,7 @@ const Footer = () => {
       </div>
 
       <div className='footer__copyrights'>
-        <p className=''>@2023 CarHub. All Rights Reserved</p>
+        <p>@2023 CarHub. All Rights Reserved</p>
 
         <div className='footer__copyrights-link'>
           <Link
