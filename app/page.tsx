@@ -3,6 +3,7 @@ import SearchBar from '@components/home/SearchBar';
 import CustomFilter from '@components/home/CustomFilter';
 import CarCard from '@components/home/CarCard';
 
+import { fuels, yearsOfProduction } from '@constants';
 import { fetchCars } from '@utils';
 
 interface HomeProps {
@@ -20,11 +21,11 @@ export default async function Home({ searchParams }: HomeProps) {
     manufacturer: searchParams?.manufacturer || '',
     year: searchParams?.year || 2022,
     fuel: searchParams?.fuel || '',
-    limit: searchParams?.limit || 10,
+    limit: searchParams?.limit || 8,
     model: searchParams?.model || '',
   });
 
-  console.log('🚀 ~ file: page.tsx:8 ~ Home ~ allCars:', allCars);
+  console.log('🚀 ~ file: page.tsx:28 ~ Home ~ allCars:', allCars);
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
 
@@ -45,8 +46,14 @@ export default async function Home({ searchParams }: HomeProps) {
           <SearchBar />
 
           <div className='home__filter-container'>
-            <CustomFilter title='fuel' />
-            <CustomFilter title='year' />
+            <CustomFilter
+              title='fuel'
+              options={fuels}
+            />
+            <CustomFilter
+              title='year'
+              options={yearsOfProduction}
+            />
           </div>
         </div>
 

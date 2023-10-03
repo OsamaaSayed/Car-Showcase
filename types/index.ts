@@ -10,8 +10,14 @@ export interface CustomButtonProps {
     handleClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
+export interface IOption {
+    title: string;
+    value: string;
+}
+
 export interface CustomFilterProps {
     title: string;
+    options: IOption[];
 }
 
 export interface SearchManufacturerProps {
@@ -50,3 +56,4 @@ export interface IFilter {
     limit: number,
     model: string,
 }
+
