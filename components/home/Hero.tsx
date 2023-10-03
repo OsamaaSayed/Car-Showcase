@@ -32,6 +32,7 @@ const Hero = () => {
             src='/images/hero.png'
             alt='hero'
             fill
+            priority
             className='object-contain'
           />
         </div>

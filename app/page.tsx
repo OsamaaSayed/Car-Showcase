@@ -5,8 +5,25 @@ import CarCard from '@components/home/CarCard';
 
 import { fetchCars } from '@utils';
 
-export default async function Home() {
-  const allCars = await fetchCars();
+interface HomeProps {
+  searchParams?: {
+    manufacturer?: string;
+    year?: number;
+    fuel?: string;
+    limit?: number;
+    model?: string;
+  };
+}
+
+export default async function Home({ searchParams }: HomeProps) {
+  const allCars = await fetchCars({
+    manufacturer: searchParams?.manufacturer || '',
+    year: searchParams?.year || 2022,
+    fuel: searchParams?.fuel || '',
+    limit: searchParams?.limit || 10,
+    model: searchParams?.model || '',
+  });
+
   console.log('🚀 ~ file: page.tsx:8 ~ Home ~ allCars:', allCars);
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;

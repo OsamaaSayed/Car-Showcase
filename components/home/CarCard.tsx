@@ -6,7 +6,7 @@ import { useState } from 'react';
 import CustomButton from '@components/shared/CustomButton';
 import CarDetails from './CarDetails';
 
-import { calculateCarRent } from '@utils';
+import { calculateCarRent, generateCarImageUrl } from '@utils';
 import { CarCardProps } from '@types';
 
 const CarCard = ({ car }: CarCardProps) => {
@@ -32,7 +32,7 @@ const CarCard = ({ car }: CarCardProps) => {
 
       <div className='relative w-full h-40 my-3'>
         <Image
-          src='/images/hero.png'
+          src={generateCarImageUrl(car)}
           alt='Car Model'
           fill
           priority
@@ -87,7 +87,11 @@ const CarCard = ({ car }: CarCardProps) => {
         </div>
       </div>
 
-      <CarDetails />
+      <CarDetails
+        isOpen={isOpen}
+        car={car}
+        closeModal={() => setIsOpen(false)}
+      />
     </div>
   );
 };

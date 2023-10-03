@@ -19,7 +19,7 @@ export interface SearchManufacturerProps {
     setManufacturer: (manufacturer: string) => void;
 }
 
-interface ICar {
+export interface ICar {
     city_mpg: number,
     class: string,
     combination_mpg: number,
@@ -37,3 +37,16 @@ export interface CarCardProps {
     car: ICar;
 }
 
+export interface CarDetailsProps {
+    isOpen: boolean;
+    car: ICar;
+    closeModal: () => void;
+}
+
+export interface IFilter {
+    manufacturer: string,
+    year: number,
+    fuel: string,
+    limit: number,
+    model: string,
+}
