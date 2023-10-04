@@ -2,6 +2,7 @@ import Hero from '@components/home/Hero';
 import SearchBar from '@components/home/SearchBar';
 import CustomFilter from '@components/home/CustomFilter';
 import CarCard from '@components/home/CarCard';
+import ShowMore from '@components/home/ShowMore';
 
 import { fuels, yearsOfProduction } from '@constants';
 import { fetchCars } from '@utils';
@@ -21,7 +22,7 @@ export default async function Home({ searchParams }: HomeProps) {
     manufacturer: searchParams?.manufacturer || '',
     year: searchParams?.year || 2022,
     fuel: searchParams?.fuel || '',
-    limit: searchParams?.limit || 8,
+    limit: searchParams?.limit || 10,
     model: searchParams?.model || '',
   });
 
@@ -72,6 +73,11 @@ export default async function Home({ searchParams }: HomeProps) {
                 />
               ))}
             </div>
+
+            <ShowMore
+              pageNumber={(searchParams?.limit || 10) / 10}
+              isNext={(searchParams?.limit || 10) > allCars.length}
+            />
           </section>
         )}
       </div>

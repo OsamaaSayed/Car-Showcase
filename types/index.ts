@@ -57,3 +57,8 @@ export interface IFilter {
     model: string,
 }
 
+export interface ShowMoreProps {
+    pageNumber: number;
+    isNext: boolean;
+  }
+  
